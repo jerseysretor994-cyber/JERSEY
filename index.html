@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Jerseys</title>
+
 <style>
 body {
     margin: 0;
@@ -12,7 +13,6 @@ body {
     color: white;
 }
 
-/* HERO SECTION */
 .hero {
     display: flex;
     align-items: center;
@@ -22,7 +22,6 @@ body {
     gap: 30px;
 }
 
-/* LEFT CONTENT */
 .hero-text {
     max-width: 500px;
 }
@@ -39,7 +38,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* BUTTONS */
 .buttons a {
     text-decoration: none;
     padding: 14px 24px;
@@ -48,31 +46,28 @@ body {
     border-radius: 50px;
     font-weight: bold;
     display: inline-block;
-    //*transition: 0.3s*//
+    transition: transform 0.2s ease;
 }
 
-/* WhatsApp */
 .whatsapp {
     background: #25D366;
     color: white;
 }
-.whatsapp:hover { transform: scale(1.1); }
 
-/* Catalog */
 .catalog {
     background: #25D366;
     color: white;
 }
-.catalog:hover { transform: scale(1.1); }
 
-/* Instagram */
 .instagram {
     background: #25D366;
     color: white;
 }
-.instagram:hover { transform: scale(1.1); }
 
-/* RIGHT IMAGE BACKGROUND */
+.buttons a:active {
+    transform: scale(1.08);
+}
+
 .hero-image {
     width: 40%;
     height: 80vh;
@@ -82,9 +77,8 @@ body {
     background-position: center;
 }
 
-/* LOGO */
 .logo {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Trebuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif;
     font-style: italic;
     position: absolute;
     top: 20px;
@@ -93,8 +87,6 @@ body {
     font-weight: bold;
     color: #ffcc00;
 }
-
-/* ---------------- MOBILE RESPONSIVE ---------------- */
 
 @media (max-width: 900px) {
 
@@ -122,11 +114,16 @@ body {
         margin: 10px auto;
     }
 
+    .buttons a:hover {
+        transform: none;
+    }
+
     .hero-image {
         width: 100%;
-        height: 300px;
+        height: 340px;
         margin-top: 20px;
         background-size: contain;
+        background-position: center top;
     }
 
     .logo {
@@ -144,7 +141,6 @@ body {
 
 <div class="hero">
 
-    <!-- LEFT SIDE TEXT -->
     <div class="hero-text">
         <h1>Find The Best Collections Out There</h1>
         <p>Premium football Jerseys Store. Limited stock.</p>
@@ -157,7 +153,6 @@ body {
         </div>
     </div>
 
-    <!-- RIGHT SIDE IMAGE -->
     <div class="hero-image"></div>
 
 </div>
