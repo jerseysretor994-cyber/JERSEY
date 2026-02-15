@@ -4,37 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Jerseys</title>
-
 <style>
+
 body {
+    
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(120deg, #0b0000, #010000);
     color: white;
-    overflow-x: hidden;
 }
 
-/* MOLECULE BACKGROUND */
-#molecule-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
+/* HERO SECTION */
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 100vh;
+    height: 100vh;
     padding: 0 8%;
-    gap: 30px;
-    position: relative;
-    z-index: 1;
 }
 
+/* LEFT CONTENT */
 .hero-text {
     max-width: 500px;
 }
@@ -48,116 +37,73 @@ body {
 
 .hero-text p {
     color: #d7c7c7;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
+/* BUTTONS */
 .buttons a {
     text-decoration: none;
     padding: 14px 24px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 50px;
+    margin-right: 15px;
+    border-radius: 100px;
     font-weight: bold;
     display: inline-block;
-    transition: transform 0.2s ease;
+    transition: 0.3s;
 }
 
-.whatsapp, .catalog, .instagram {
+/* WhatsApp */
+.whatsapp {
     background: #25D366;
     color: white;
 }
+.whatsapp:hover { transform: scale(1.1); }
 
-.buttons a:active {
-    transform: scale(1.08);
+/* Catalog */
+.catalog {
+   background: #25D366;
+    color: white;;
 }
+.catalog:hover { transform: scale(1.1); }
 
+/* Instagram */
+.instagram {
+    background: #25D366;
+    color: white;
+}
+.instagram:hover { transform: scale(1.1); }
+
+/* RIGHT IMAGE BACKGROUND */
 .hero-image {
     width: 40%;
-    height: 80vh;
-    background-image: url("photo.png");
+    height: 80%;
+    background-image: url("photo.png"); /* your jersey image */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
+/* LOGO */
 .logo {
-    font-family:'Trebuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
     font-style: italic;
     position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 22px;
+    top: 25px;
+    left: 40px;
+    font-size: 24px;
     font-weight: bold;
     color: #ffcc00;
 }
 
-/* MOBILE */
-
-@media (max-width: 900px) {
-
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 12px;
-        gap: 8px;
-    }
-
-    .hero-text {
-        order: 1;
-        max-width: 100%;
-    }
-
-    .buttons {
-        order: 2;
-        margin-top: 5px;
-    }
-
-    .hero-image {
-        order: 3;
-        width: 100%;
-        height: 240px;
-        background-size: contain;
-        background-position: bottom center;
-        margin-top: 10px;
-    }
-
-    .hero-text h1 {
-        font-size: 26px;
-        margin-bottom: 8px;
-    }
-
-    .hero-text p {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .buttons a {
-        display: block;
-        width: 88%;
-        margin: 8px auto;
-    }
-
-    .buttons a:hover {
-        transform: none;
-    }
-
-    .logo {
-        position: static;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-}
 </style>
 </head>
 
 <body>
 
-<canvas id="molecule-bg"></canvas>
-
 <div class="logo"></div>
 
 <div class="hero">
 
+    <!-- LEFT SIDE TEXT -->
     <div class="hero-text">
         <h1>Find The Best Collections Out There</h1>
         <p>Premium football Jerseys Store. Limited stock.</p>
@@ -165,119 +111,15 @@ body {
 
         <div class="buttons">
             <a class="whatsapp" href="https://chat.whatsapp.com/EeapMHXnDV2DtgbhmJsxK8" target="_blank">Join WhatsApp</a>
-            <a class="catalog" href="https://drive.google.com/drive/folders/1090SZLa1ypNNOD2kVzJG7Zvj5FkXiV8N?usp=sharing" target="_blank">View Catalog</a>
+            <a class="catalog" href="https://drive.google.com/drive/u/5/my-drive" target="_blank">View Catalog</a>
             <a class="instagram" href="https://www.instagram.com/retrooojerseys/?hl=en" target="_blank">Instagram</a>
         </div>
     </div>
 
+    <!-- RIGHT SIDE IMAGE -->
     <div class="hero-image"></div>
 
 </div>
-
-<script>
-const canvas = document.getElementById("molecule-bg");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-const particleCount = 90;
-
-let mouse = { x: null, y: null };
-
-window.addEventListener("mousemove", e => {
-    mouse.x = e.x;
-    mouse.y = e.y;
-});
-
-window.addEventListener("touchmove", e => {
-    mouse.x = e.touches[0].clientX;
-    mouse.y = e.touches[0].clientY;
-});
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 0.7 - 0.35;
-        this.speedY = Math.random() * 0.7 - 0.35;
-    }
-
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (mouse.x && mouse.y) {
-            let dx = mouse.x - this.x;
-            let dy = mouse.y - this.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 140) {
-                this.x -= dx / 25;
-                this.y -= dy / 25;
-            }
-        }
-
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
-
-    draw() {
-        ctx.fillStyle = "rgba(0,255,255,0.8)";
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-function init() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-}
-
-function connectParticles() {
-    for (let a = 0; a < particles.length; a++) {
-        for (let b = a; b < particles.length; b++) {
-            let dx = particles[a].x - particles[b].x;
-            let dy = particles[a].y - particles[b].y;
-            let distance = dx * dx + dy * dy;
-
-            if (distance < 10000) {
-                ctx.strokeStyle = "rgba(0,255,255,0.15)";
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(particles[a].x, particles[a].y);
-                ctx.lineTo(particles[b].x, particles[b].y);
-                ctx.stroke();
-            }
-        }
-    }
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
-
-    connectParticles();
-    requestAnimationFrame(animate);
-}
-
-init();
-animate();
-</script>
 
 </body>
 </html>
