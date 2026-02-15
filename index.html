@@ -4,26 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Retro Jerseys</title>
-<style>
 
+<style>
 body {
-    
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(120deg, #0b0000, #010000);
     color: white;
 }
 
-/* HERO SECTION */
 .hero {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100vh;
+    min-height: 100vh;
     padding: 0 8%;
+    gap: 30px;
 }
 
-/* LEFT CONTENT */
 .hero-text {
     max-width: 500px;
 }
@@ -37,63 +35,105 @@ body {
 
 .hero-text p {
     color: #d7c7c7;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-/* BUTTONS */
 .buttons a {
     text-decoration: none;
     padding: 14px 24px;
-    margin-right: 15px;
-    border-radius: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 50px;
     font-weight: bold;
     display: inline-block;
-    transition: 0.3s;
+    transition: transform 0.2s ease;
 }
 
-/* WhatsApp */
-.whatsapp {
+.whatsapp, .catalog, .instagram {
     background: #25D366;
     color: white;
 }
-.whatsapp:hover { transform: scale(1.1); }
 
-/* Catalog */
-.catalog {
-   background: #25D366;
-    color: white;;
+.buttons a:active {
+    transform: scale(1.08);
 }
-.catalog:hover { transform: scale(1.1); }
 
-/* Instagram */
-.instagram {
-    background: #25D366;
-    color: white;
-}
-.instagram:hover { transform: scale(1.1); }
-
-/* RIGHT IMAGE BACKGROUND */
 .hero-image {
     width: 40%;
-    height: 80%;
-    background-image: url("photo.png"); /* your jersey image */
+    height: 80vh;
+    background-image: url("photo.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-/* LOGO */
 .logo {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family:'Trebuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif;
     font-style: italic;
     position: absolute;
-    top: 25px;
-    left: 40px;
-    font-size: 24px;
+    top: 20px;
+    left: 20px;
+    font-size: 22px;
     font-weight: bold;
     color: #ffcc00;
 }
 
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 12px;
+        gap: 8px;
+    }
+
+    .hero-text {
+        order: 1;
+        max-width: 100%;
+    }
+
+    .buttons {
+        order: 2;
+        margin-top: 5px;
+    }
+
+    .hero-image {
+        order: 3;
+        width: 100%;
+        height: 240px;
+        background-size: contain;
+        background-position: bottom center;
+        margin-top: 10px;
+    }
+
+    .hero-text h1 {
+        font-size: 26px;
+        margin-bottom: 8px;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .buttons a {
+        display: block;
+        width: 88%;
+        margin: 8px auto;
+    }
+
+    .buttons a:hover {
+        transform: none;
+    }
+
+    .logo {
+        position: static;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
 </style>
 </head>
 
@@ -103,7 +143,6 @@ body {
 
 <div class="hero">
 
-    <!-- LEFT SIDE TEXT -->
     <div class="hero-text">
         <h1>Find The Best Collections Out There</h1>
         <p>Premium football Jerseys Store. Limited stock.</p>
@@ -111,12 +150,11 @@ body {
 
         <div class="buttons">
             <a class="whatsapp" href="https://chat.whatsapp.com/EeapMHXnDV2DtgbhmJsxK8" target="_blank">Join WhatsApp</a>
-            <a class="catalog" href="https://drive.google.com/drive/u/5/my-drive" target="_blank">View Catalog</a>
+            <a class="catalog" href="https://drive.google.com/drive/folders/1090SZLa1ypNNOD2kVzJG7Zvj5FkXiV8N?usp=sharing" target="_blank">View Catalog</a>
             <a class="instagram" href="https://www.instagram.com/retrooojerseys/?hl=en" target="_blank">Instagram</a>
         </div>
     </div>
 
-    
     <div class="hero-image"></div>
 
 </div>
