@@ -6,8 +6,15 @@
 <title>Retro Jerseys</title>
 
 <style>
-body {
+
+/* FIX: prevents sideways scrolling on phone */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
     background: #000;
     color: white;
@@ -62,15 +69,15 @@ body {
     transform: scale(0.96);
 }
 
-/* IMAGE DESKTOP — PUSHED RIGHT */
+/* IMAGE DESKTOP */
 .hero-image {
     width: 45%;
     height: 80vh;
     background-image: url("photo.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: right center;   /* shifted right */
-    margin-left: auto;                   /* pushes it more right */
+    background-position: right center;
+    margin-left: auto;
 }
 
 /* LOGO */
@@ -90,15 +97,15 @@ body {
     .hero {
         flex-direction: column;
         text-align: center;
-        padding: 18px 14px;
+        padding: 16px;
         min-height: auto;
+        width: 100%;
     }
 
-    /* IMAGE FIRST WHEN SITE OPENS */
     .hero-image {
         order: 1;
         width: 100%;
-        height: 240px;
+        height: 220px;
         background-size: contain;
         background-position: center top;
         margin-left: 0;
@@ -106,6 +113,7 @@ body {
 
     .hero-text {
         order: 2;
+        width: 100%;
     }
 
     .hero-text h1 {
@@ -114,12 +122,13 @@ body {
 
     .buttons {
         order: 3;
+        width: 100%;
     }
 
     .buttons a {
         display: block;
-        width: 92%;
-        margin: 10px auto;
+        width: 100%;
+        margin: 8px 0;
     }
 
     .logo {
@@ -127,6 +136,7 @@ body {
         margin-bottom: 15px;
     }
 }
+
 </style>
 </head>
 
